@@ -1,48 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Redireciona automaticamente em 2 segundos -->
-<meta http-equiv="refresh" content="2;url=https://www.tiktok.com/d/1/ZT9N7NVavUqcE-s1ACU/">
 
 <title>Loading...</title>
 
 <style>
 body {
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial;
-  text-align:center;
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial;
+    text-align: center;
 }
 
-.box {
-  margin-top:40%;
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 button {
-  background:#ff004c;
-  color:#fff;
-  padding:15px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:8px;
+    background: #ff004f;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 </style>
+
+<script>
+// pega o clickid da URL
+function getClickID() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("clickid") || "";
+}
+
+// seu link do jogo
+function redirect() {
+    let clickid = getClickID();
+    let url = "https://www.tiktok.com/d/1/ZT9N7NVavUqcE-s1ACU/";
+
+    if(clickid){
+        url += "&clickid=" + clickid;
+    }
+
+    window.location.href = url;
+}
+
+// redireciona automático em 1 segundo
+setTimeout(redirect, 1000);
+</script>
+
 </head>
 
 <body>
 
-<div class="box">
-  <h2>🔄 Loading...</h2>
-  <p>Please wait</p>
+<div class="container">
+    <h1>🔄 Loading...</h1>
+    <p>Please wait</p>
 
-  <!-- Botão backup -->
-  <a href="https://www.tiktok.com/d/1/ZT9N7NVavUqcE-s1ACU/">
-    <button>Continue</button>
-  </a>
+    <button onclick="redirect()">Continue</button>
 </div>
 
 </body>
