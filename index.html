@@ -1,67 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
 
-<title>Loading...</title>
-
-<script>
-// pega o clickid da URL
-function getClickID() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("clickid") || "";
-}
-
-// redireciona pro link do jogo
-function redirect() {
-    let clickid = getClickID();
-
-    let url = "https://www.tiktok.com/d/1/ZP9N3Qb1c8wVV-mqX9E/";
-
-    if (clickid) {
-        url += (url.includes("?") ? "&" : "?") + "clickid=" + clickid;
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    window.location.href = url;
-}
+    .box {
+      padding: 25px;
+      max-width: 360px;
+    }
 
-// redireciona automático (rápido)
-window.onload = redirect;
-</script>
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-<style>
-body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial;
-    text-align: center;
-}
+    p {
+      color: #bbb;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
 
-.container {
-    margin-top: 40%;
-}
+    .btn {
+      display: block;
+      background: #ff0050;
+      color: #fff;
+      text-decoration: none;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
 
-button {
-    background: #ff0050;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 8px;
-}
-</style>
-
+    .small {
+      font-size: 13px;
+      color: #888;
+      margin-top: 18px;
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="container">
+  <div class="box">
     <h1>🔄 Loading...</h1>
     <p>Please wait</p>
-    <button onclick="redirect()">Continue</button>
-</div>
 
+    <a class="btn" id="openBtn" href="#">
+      Abrir no TikTok
+    </a>
+
+    <div class="small">
+      Se não abrir sozinho, toque no botão acima.
+    </div>
+  </div>
+
+  <script>
+    const tiktokLink = "https://www.tiktok.com/d/1/ZP9N3Qb1c8wVV-mqX9E/";
+
+    const params = new URLSearchParams(window.location.search);
+    const clickid = params.get("clickid");
+
+    let finalLink = tiktokLink;
+
+    if (clickid) {
+      finalLink += "?clickid=" + encodeURIComponent(clickid);
+    }
+
+    document.getElementById("openBtn").href = finalLink;
+
+    setTimeout(function () {
+      window.location.href = finalLink;
+    }, 800);
+  </script>
 </body>
 </html>
