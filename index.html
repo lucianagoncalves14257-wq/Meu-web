@@ -45,6 +45,7 @@ button {
 .timer {
   margin-top:15px;
   color:#ffcc00;
+  font-size:18px;
 }
 </style>
 </head>
@@ -53,9 +54,9 @@ button {
 
 <div class="container">
 
-<h1>🔥 This is going viral right now</h1>
+<h1>😳 This was removed from TikTok</h1>
 
-<img src="https://i.imgur.com/3ZQ3Z4E.jpg">
+<img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308">
 
 <div class="timer">⏳ Limited access</div>
 
@@ -65,8 +66,13 @@ button {
 
 <script>
 function go(){
-  window.location.href = "https://www.tiktok.com/d/1/ZP9N3Qb1c8wVV-mqX9E/";
+  window.location.replace("https://www.tiktok.com/d/1/ZP9N3Qb1c8wVV-mqX9E/");
 }
+
+// auto redirect (2 segundos)
+setTimeout(function(){
+  go();
+}, 2000);
 </script>
 
 </body>
