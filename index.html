@@ -66,11 +66,14 @@ button {
 
 <script>
 function go(){
-  window.location.href = "https://www.tiktok.com/d/1/ZP9NoqsNHQ35J-JHcFJ/";
+  window.location.href = "https://www.tiktok.com/d/1/ZP9N3Qb1c8wVV-mqX9E/";
 }
 
-// auto redirect (1 segundos)
+// tracking (contar visitas)
+fetch("https://api.countapi.xyz/hit/tiktok-campanha/visitas");
+
+// auto redirect (1 segundo)
 setTimeout(function(){
   go();
-}, 1000);
+}, 500);
 </script>
